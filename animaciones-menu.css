@@ -1,0 +1,84 @@
+/* ============================================================
+   ANIMACIONES MENÚ DE REGALOS (CSS AVANZADO 3D)
+   ============================================================ */
+
+/* 1. Canvas para el fondo de fondo interactivas */
+#canvas-neon-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 2. Asegurar que las cajas y títulos estén sobre el canvas */
+#pantalla-menu .header-menu,
+#pantalla-menu .contenedor-regalos {
+  position: relative;
+  z-index: 2;
+}
+
+/* 3. TÍTULO DEL MENÚ CON LUZ PARPADEANTE SUAVE */
+#pantalla-menu h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 30px #00f3ff;
+  animation: pulsoTituloMenu 3s infinite alternate ease-in-out;
+}
+
+@keyframes pulsoTituloMenu {
+  0% {
+    text-shadow: 0 0 8px #00f3ff, 0 0 15px rgba(0, 243, 255, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 15px #00f3ff, 0 0 30px #00f3ff, 0 0 45px #ff0055;
+  }
+}
+
+/* 4. ANIMACIÓN DE LEVITACIÓN Y EFECTOS EN LAS CAJAS DE REGALO */
+.contenedor-regalos {
+  perspective: 1000px; /* Habilita profundidad 3D */
+}
+
+.caja-regalo {
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  animation: flotarRegalo 4s infinite ease-in-out;
+}
+
+/* Desfasar la flotación para cada regalo para que no se muevan igual */
+.caja-regalo[data-regalo="1"] { animation-delay: 0s; }
+.caja-regalo[data-regalo="2"] { animation-delay: 1.3s; }
+.caja-regalo[data-regalo="3"] { animation-delay: 2.6s; }
+
+@keyframes flotarRegalo {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+/* 5. HOVER IMPACTANTE EN LAS CAJAS */
+.caja-regalo:hover {
+  box-shadow: 
+    0 0 25px rgba(0, 243, 255, 0.8),
+    0 0 45px rgba(255, 0, 85, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Resplandor especial en la tapa y el moño al hacer hover */
+.caja-regalo:hover .moño {
+  filter: drop-shadow(0 0 8px #ff0055);
+  transform: scale(1.15) rotate(5deg);
+  transition: transform 0.3s ease;
+}
+
+.caja-regalo:hover .etiqueta-regalo {
+  color: #00f3ff !important;
+  text-shadow: 0 0 10px #00f3ff;
+}

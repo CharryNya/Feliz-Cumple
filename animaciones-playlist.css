@@ -1,0 +1,250 @@
+/* ============================================================
+   ANIMACIONES, VISUALIZADOR Y CASSETTE: PLAYLIST NEÓN CYBERPUNK
+   ============================================================ */
+
+/* 1. VISUALIZADOR DE ESPECTRO AUDIO REAL (PANEL SUPERIOR) */
+.visualizador-audio-container {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+  background: rgba(5, 6, 12, 0.9);
+  border: 1px solid rgba(0, 243, 255, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 15px rgba(0, 243, 255, 0.2),
+    inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+#canvas-espectro {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.visualizador-overlay-text {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  font-family: 'Orbitron', monospace, sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  color: var(--azul-neon, #00f3ff);
+  text-shadow: 0 0 5px var(--azul-neon, #00f3ff);
+  pointer-events: none;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+/* 2. Entradas con Delay (Efecto Cascada) */
+#modal-1 .cupon {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#modal-1:not(.oculta) .cupon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#modal-1:not(.oculta) .cupon:nth-child(1) { transition-delay: 0.1s; }
+#modal-1:not(.oculta) .cupon:nth-child(2) { transition-delay: 0.2s; }
+#modal-1:not(.oculta) .cupon:nth-child(3) { transition-delay: 0.3s; }
+#modal-1:not(.oculta) .cupon:nth-child(4) { transition-delay: 0.4s; }
+#modal-1:not(.oculta) .cupon:nth-child(5) { transition-delay: 0.5s; }
+#modal-1:not(.oculta) .cupon:nth-child(6) { transition-delay: 0.6s; }
+
+/* 3. Estilo de las Tarjetas de Canción (Layout Flex) */
+#modal-1 .cupon {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  gap: 14px;
+  background: rgba(10, 12, 22, 0.85);
+  border: 1px solid rgba(0, 243, 255, 0.25);
+  border-radius: 12px;
+  padding: 14px 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#modal-1 .cupon:hover {
+  transform: translateY(-3px);
+  border-color: var(--azul-neon, #00f3ff);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+.cupon-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* 4. Estado: Canción Sonando (Efecto Neón + Escáner) */
+#modal-1 .cupon.reproduciendo {
+  border-color: var(--rojo-neon, #ff0055) !important;
+  background: rgba(22, 8, 28, 0.92) !important;
+  box-shadow: 0 0 22px rgba(255, 0, 85, 0.5) !important;
+}
+
+#modal-1 .cupon.reproduciendo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
+  animation: escannerNeon 2.5s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes escannerNeon {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* 5. CASSETTE CYBERPUNK FLOTANTE */
+.cyber-cassette {
+  position: relative;
+  width: 65px;
+  height: 42px;
+  background: linear-gradient(135deg, #0d0f1a, #05060a);
+  border: 1.5px solid var(--azul-neon, #00f3ff);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px 6px;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.cassette-ventana {
+  position: relative;
+  width: 100%;
+  height: 18px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 0, 127, 0.4);
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carrete {
+  width: 12px;
+  height: 12px;
+  border: 2px dashed #00f3ff;
+  border-radius: 50%;
+  box-shadow: 0 0 4px #00f3ff;
+}
+
+.cassette-ventana::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background: #ff007f;
+  box-shadow: 0 0 4px #ff007f;
+}
+
+.cassette-etiqueta {
+  font-family: 'Orbitron', monospace, sans-serif;
+  font-size: 0.5rem;
+  color: #ff007f;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 0 4px #ff007f;
+}
+
+/* Giro de carretes al sonar */
+.cupon.reproduciendo .cyber-cassette {
+  border-color: #ff007f;
+  box-shadow: 0 0 18px rgba(255, 0, 127, 0.6), inset 0 0 8px rgba(0, 243, 255, 0.4);
+}
+
+.cupon.reproduciendo .carrete {
+  border-color: #ff007f;
+  box-shadow: 0 0 6px #ff007f;
+  animation: girarCarrete 1.2s infinite linear;
+}
+
+@keyframes girarCarrete {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 6. ECUALIZADOR E INTERFAZ AUDIO */
+.ecualizador-contenedor {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 16px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.barra-eq {
+  width: 3px;
+  height: 4px;
+  background-color: var(--rojo-neon, #ff0055);
+  border-radius: 2px;
+  box-shadow: 0 0 6px var(--rojo-neon, #ff0055);
+}
+
+.cupon.reproduciendo .barra-eq {
+  animation: ecualizar 0.8s infinite ease-in-out alternate;
+}
+
+.cupon.reproduciendo .barra-eq:nth-child(1) { animation-delay: 0.0s; }
+.cupon.reproduciendo .barra-eq:nth-child(2) { animation-delay: 0.2s; }
+.cupon.reproduciendo .barra-eq:nth-child(3) { animation-delay: 0.4s; }
+.cupon.reproduciendo .barra-eq:nth-child(4) { animation-delay: 0.1s; }
+
+@keyframes ecualizar {
+  0% { height: 4px; background-color: #00f3ff; box-shadow: 0 0 6px #00f3ff; }
+  100% { height: 16px; background-color: #ff0055; box-shadow: 0 0 10px #ff0055; }
+}
+
+/* 7. NOTAS MUSICALES FLOTANTES */
+.nota-flotante {
+  position: absolute;
+  font-size: 1.2rem;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 1;
+  animation: flotarNota 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+@keyframes flotarNota {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(0.6) rotate(0deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(-40px) scale(1.2) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-90px) scale(0.8) rotate(-20deg);
+  }
+}
+
+/* Personalización del Reproductor Audio Nativo */
+#modal-1 audio {
+  width: 100%;
+  height: 32px;
+  filter: invert(90%) hue-rotate(180deg) drop-shadow(0 0 4px rgba(0, 243, 255, 0.5));
+  border-radius: 20px;
+  outline: none;
+}

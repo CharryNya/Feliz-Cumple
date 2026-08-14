@@ -1,0 +1,108 @@
+/* ============================================================
+   ANIMACIONES PORTADA (CSS AVANZADO)
+   ============================================================ */
+
+/* 1. Canvas para efectos visuales (Ocupa el 100% de la pantalla) */
+#canvas-neon-portada {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Permite hacer clic en los botones detrás */
+  z-index: 1;
+}
+
+/* 2. Capa de interacción y legibilidad */
+#pantalla-inicio .header-portada,
+#pantalla-inicio .main-portada {
+  position: relative;
+  z-index: 2;
+}
+
+/* 3. Viñeta Suave en Bordes (Ajustada para no oscurecer de más) */
+#pantalla-inicio {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    inset 0 0 60px 20px rgba(10, 10, 15, 0.35),
+    inset 0 0 120px 40px rgba(10, 10, 15, 0.2);
+}
+
+/* 4. TÍTULO: EFECTO PARPADEO DE NEÓN REAL (TUBOS DE GAS) */
+#pantalla-inicio .texto-caligrafia {
+  color: #ffffff;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 10px #ff0055,
+    0 0 20px #ff0055,
+    0 0 40px #ff0055;
+  animation: flickerNeonPro 8s infinite ease-in-out;
+}
+
+/* Simulación de un tubo neón que tiene pequeños micro-fallos de corriente */
+@keyframes flickerNeonPro {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 4px #fff, 0 0 10px #ff0055, 0 0 20px #ff0055, 0 0 40px #ff0055;
+  }
+  41.99% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+  43% {
+    opacity: 1;
+    text-shadow: 0 0 4px #fff, 0 0 10px #ff0055, 0 0 20px #ff0055;
+  }
+  45% {
+    opacity: 0.7;
+    text-shadow: 0 0 2px #fff, 0 0 5px #ff0055;
+  }
+  45.5% {
+    opacity: 1;
+    text-shadow: 0 0 4px #fff, 0 0 10px #ff0055, 0 0 20px #ff0055, 0 0 40px #ff0055;
+  }
+  74% {
+    text-shadow: 0 0 4px #fff, 0 0 10px #00f3ff, 0 0 25px #00f3ff, 0 0 45px #00f3ff;
+  }
+}
+
+/* 5. SUBTÍTULO: RESPLANDOR SUAVE CONTINUO */
+#pantalla-inicio .subtitulo-bienvenida {
+  letter-spacing: 1px;
+  animation: pulsoSubtitulo 4s infinite alternate ease-in-out;
+}
+
+@keyframes pulsoSubtitulo {
+  0% {
+    opacity: 0.8;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 12px rgba(0, 243, 255, 0.7), 0 0 20px rgba(0, 243, 255, 0.3);
+  }
+}
+
+/* 6. BOTÓN PLAY: PULSO Y ENERGÍA CYBERPUNK */
+#pantalla-inicio .boton-play-cyberpunk {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: pulsoBotonNeon 2.5s infinite ease-in-out;
+}
+
+#pantalla-inicio .boton-play-cyberpunk:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 0 25px #00f3ff, 0 0 40px #ff0055 !important;
+}
+
+@keyframes pulsoBotonNeon {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.6), inset 0 0 6px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 243, 255, 0.9), 0 0 35px rgba(255, 0, 85, 0.5), inset 0 0 12px rgba(255, 255, 255, 0.9);
+  }
+}
