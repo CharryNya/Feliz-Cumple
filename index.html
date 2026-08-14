@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Feliz Cumpleaños Ed! 🪽</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron:wght@600;800&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  
+  <!-- CSS Base y Estilos Modulares -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cajas-regalo.css">
+  <link rel="stylesheet" href="animaciones-portada.css">
+  <link rel="stylesheet" href="animaciones-menu.css">
+  <link rel="stylesheet" href="animaciones-playlist.css">
+  <link rel="stylesheet" href="animaciones-cielo.css">
+  
+  <link rel="stylesheet" href="terminal.css">
+
+</head>
+<body>
+
+  <!-- PORTADA DE INICIO -->
+  <section id="pantalla-inicio" class="pantalla">
+    <header class="header-portada">
+      <h1 class="texto-caligrafia">Feliz cumple</h1>
+      <p class="subtitulo-bienvenida">Pasé 2 semanas haciendo esto, espero que te guste</p>
+    </header>
+
+    <main class="main-portada">
+      <button id="btn-play" class="boton-play-cyberpunk">
+        <span class="icono-play">▶</span> Play
+      </button>
+    </main>
+  </section>
+
+  <!-- MENÚ PRINCIPAL -->
+  <section id="pantalla-menu" class="pantalla oculta">
+    <header class="header-menu">
+      <h2>🖤 El Centro Secreto</h2>
+      <p class="subtitulo">Toca un paquete para abrir tu regalo:</p>
+    </header>
+
+    <div class="contenedor-regalos">
+  
+  <!-- CAJA 1 -->
+  <div class="caja-regalo" data-regalo="1">
+    <!-- Moño Neón Superior -->
+    <div class="mono-neon">
+      <svg viewBox="0 0 100 60" class="mono-svg">
+        <!-- Lazos del moño -->
+        <path d="M 50 35 C 30 10, 5 15, 20 35 C 35 45, 45 38, 50 35 Z" class="lazo-izq" />
+        <path d="M 50 35 C 70 10, 95 15, 80 35 C 65 45, 55 38, 50 35 Z" class="lazo-der" />
+        <!-- Nudo central -->
+        <rect x="44" y="30" width="12" height="10" rx="3" class="nudo" />
+        <!-- Tiras colgantes -->
+        <path d="M 46 38 Q 35 52 25 58" class="tira" />
+        <path d="M 54 38 Q 65 52 75 58" class="tira" />
+      </svg>
+    </div>
+
+    <!-- Tapa -->
+    <div class="tapa-caja">
+      <div class="circuito-overlay"></div>
+      <div class="cinta-vertical-tapa"></div>
+    </div>
+
+    <!-- Cuerpo -->
+    <div class="cuerpo-caja">
+      <div class="circuito-overlay"></div>
+      <div class="cinta-vertical"></div>
+      <div class="cinta-horizontal"></div>
+      <span class="etiqueta-regalo">Primer Regalo</span>
+    </div>
+  </div>
+
+  
+  <!-- CAJA 2 -->
+  <div class="caja-regalo" data-regalo="2">
+    <!-- Moño Neón Superior -->
+    <div class="mono-neon">
+      <svg viewBox="0 0 100 60" class="mono-svg">
+        <!-- Lazos del moño -->
+        <path d="M 50 35 C 30 10, 5 15, 20 35 C 35 45, 45 38, 50 35 Z" class="lazo-izq" />
+        <path d="M 50 35 C 70 10, 95 15, 80 35 C 65 45, 55 38, 50 35 Z" class="lazo-der" />
+        <!-- Nudo central -->
+        <rect x="44" y="30" width="12" height="10" rx="3" class="nudo" />
+        <!-- Tiras colgantes -->
+        <path d="M 46 38 Q 35 52 25 58" class="tira" />
+        <path d="M 54 38 Q 65 52 75 58" class="tira" />
+      </svg>
+    </div>
+
+    <!-- Tapa -->
+    <div class="tapa-caja">
+      <div class="circuito-overlay"></div>
+      <div class="cinta-vertical-tapa"></div>
+    </div>
+
+    <!-- Cuerpo -->
+    <div class="cuerpo-caja">
+      <div class="circuito-overlay"></div>
+      <div class="cinta-vertical"></div>
+      <div class="cinta-horizontal"></div>
+      <span class="etiqueta-regalo">Segundo Regalo</span>
+    </div>
+  </div>
+
+  <!-- Repetir la misma estructura para las Cajas 2 y 3 (cambiando la etiqueta) -->
+
+  
+  <!-- CAJA 3 -->
+  <div class="caja-regalo" data-regalo="3">
+    <!-- Moño Neón Superior -->
+    <div class="mono-neon">
+      <svg viewBox="0 0 100 60" class="mono-svg">
+        <!-- Lazos del moño -->
+        <path d="M 50 35 C 30 10, 5 15, 20 35 C 35 45, 45 38, 50 35 Z" class="lazo-izq" />
+        <path d="M 50 35 C 70 10, 95 15, 80 35 C 65 45, 55 38, 50 35 Z" class="lazo-der" />
+        <!-- Nudo central -->
+        <rect x="44" y="30" width="12" height="10" rx="3" class="nudo" />
+        <!-- Tiras colgantes -->
+        <path d="M 46 38 Q 35 52 25 58" class="tira" />
+        <path d="M 54 38 Q 65 52 75 58" class="tira" />
+      </svg>
+    </div>
+
+    <!-- Tapa -->
+    <div class="tapa-caja">
+      <div class="circuito-overlay"></div>
+      <div class="cinta-vertical-tapa"></div>
+    </div>
+
+    <!-- Cuerpo -->
+    <div class="cuerpo-caja">
+      <div class="circuito-overlay"></div>
+      <div class="cinta-vertical"></div>
+      <div class="cinta-horizontal"></div>
+      <span class="etiqueta-regalo">Tercer Regalo</span>
+    </div>
+  </div>
+</div>
+  </section>
+
+  <!-- MODAL 1: PLAYLIST -->
+  <div id="modal-1" class="modal-pestana oculta">
+    <div class="modal-contenido">
+      <button class="btn-cerrar" onclick="cerrarModal(1)">&times;</button>
+      <h3>🎧 Playlist Especial 🎧</h3>
+      <p class="subtitulo">Canciones elegidas especialmente para ti:</p>
+      
+      <div class="cupones-grid">
+        <div class="cupon">
+          <strong>1. Cry Baby</strong>
+          <p style="color: #a0aec0; margin-top: 4px;">The Neighbourhood</p>
+          <audio controls src="cancion1.mp3" style="width: 100%; margin-top: 8px;"></audio>
+          <a href="cancion1.mp3" download="Cry_Baby_The_Neighbourhood.mp3" class="btn-descargar-cancion">
+            ⬇️ Descargar Canción
+          </a>
+        </div>
+
+        <div class="cupon">
+          <strong>2. Do I Wanna Know</strong>
+          <p style="color: #a0aec0; margin-top: 4px;">Arctic Monkeys</p>
+          <audio controls src="cancion2.mp3" style="width: 100%; margin-top: 8px;"></audio>
+          <a href="cancion2.mp3" download="Do_I_Wanna_Know_Arctic_Monkeys.mp3" class="btn-descargar-cancion">
+            ⬇️ Descargar Canción
+          </a>
+        </div>
+
+        <div class="cupon">
+          <strong>3. Let Me Love You</strong>
+          <p style="color: #a0aec0; margin-top: 4px;">Arctic Monkeys</p>
+          <audio controls src="cancion3.mp3" style="width: 100%; margin-top: 8px;"></audio>
+          <a href="cancion3.mp3" download="Let_Me_Love_You_Arctic_Monkeys.mp3" class="btn-descargar-cancion">
+            ⬇️ Descargar Canción
+          </a>
+        </div>
+
+        <div class="cupon">
+          <strong>4. Cruel Summer</strong>
+          <p style="color: #a0aec0; margin-top: 4px;">Taylor Swift</p>
+          <audio controls src="cancion4.mp3" style="width: 100%; margin-top: 8px;"></audio>
+          <a href="cancion4.mp3" download="Cruel_Summer_Taylor_Swift.mp3" class="btn-descargar-cancion">
+            ⬇️ Descargar Canción
+          </a>
+        </div>
+
+        <div class="cupon">
+          <strong>5. I Wanna Be Yours</strong>
+          <p style="color: #a0aec0; margin-top: 4px;">Arctic Monkeys</p>
+          <audio controls src="cancion5.mp3" style="width: 100%; margin-top: 8px;"></audio>
+          <a href="cancion5.mp3" download="I_Wanna_Be_Yours_Arctic_Monkeys.mp3" class="btn-descargar-cancion">
+            ⬇️ Descargar Canción
+          </a>
+        </div>
+
+        <div class="cupon">
+          <strong>6. Rara Vez</strong>
+          <p style="color: #a0aec0; margin-top: 4px;">Milo J. y Taiu</p>
+          <audio controls src="cancion6.mp3" style="width: 100%; margin-top: 8px;"></audio>
+          <a href="cancion6.mp3" download="Rara_Vez_Milo_J_Taiu.mp3" class="btn-descargar-cancion">
+            ⬇️ Descargar Canción
+          </a>
+        </div>
+      </div>
+
+      <button class="btn-volver-menu" onclick="cerrarModal(1)">← Volver al Menú</button>
+    </div>
+  </div>
+
+  <!-- MODAL 2: MAPA ESTELAR -->
+  <div id="modal-2" class="modal-pestana oculta">
+    <div class="modal-contenido" style="max-width: 750px;">
+      <button class="btn-cerrar" onclick="cerrarModal(2)">&times;</button>
+      
+      <h3 class="texto-caligrafia" style="font-size: 2.8rem;">El Cielo de tu Día</h3>
+      <p class="subtitulo">Sinaloa, México — 15 de Agosto de 2006</p>
+
+      <div class="marco-mapa-estelar">
+        <iframe 
+          src="https://virtualsky.lco.global/embed/index.html?longitude=-107.3941&latitude=24.8054&projection=stereo&constellations=true&constellationlabels=true&showstarlabels=false&live=false&clock=2006-08-15T05:00:00Z&az=180" 
+          width="100%" 
+          height="100%" 
+          style="border:none;"
+          allowtransparency="true">
+        </iframe>
+      </div>
+
+      <div class="placa-fecha-estelar">
+        ✦ 15 · 08 · 2006 ✦
+      </div>
+
+      <p class="dedicatoria-estelar">
+        "The sky is beautiful today, don't you think?"
+      </p>
+
+      <button class="btn-volver-menu" onclick="cerrarModal(2)">← Volver al Menú</button>
+    </div>
+  </div>
+
+  <div id="modal-3" class="modal-pestana oculta">
+  <button class="btn-cerrar" onclick="cerrarModal(3)">&times;</button>
+  
+  <div class="terminal-container">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="terminal-title">SISTEMA_MENSAJES_V2.0.exe</div>
+    </div>
+
+    <div class="terminal-body">
+      <div class="terminal-line input-prompt">> INICIANDO CONEXIÓN CON EL UNIVERSO...</div>
+      <div class="terminal-line response" id="terminal-texto">
+        [Presiona el botón para interceptar un mensaje...]
+      </div>
+    </div>
+
+    <div class="terminal-controls">
+      <button class="boton-cyberpunk" id="btn-generar-frase" onclick="generarMensaje()">
+        📡 INTERCEPTAR MENSAJE
+      </button>
+    </div>
+</div>
+
+  <!-- Scripts JavaScript -->
+  <script src="script.js"></script>
+  <script src="cajas-regalo.js"></script>
+  <script src="animaciones-portada.js"></script>
+  <script src="animaciones-menu.js"></script>
+  <script src="animaciones-playlist.js"></script>
+  <script src="animaciones-cielo.js"></script>
+
+  <script src="terminal.js"></script>
+  
+<!-- Canvas flotante para el confeti neón -->
+<canvas id="canvas-particulas-neon"></canvas>
+</body>
+</html>

@@ -1,0 +1,146 @@
+/* ==========================================
+   VARIABLES LOCALES (Por seguridad)
+   ========================================== */
+:root {
+  --rojo-neon: #ff0055;
+  --azul-neon: #00f3ff;
+  --blanco-luna: #f0f4f8;
+  --fondo-oscuro: #0a0a0f;
+}
+
+/* ==========================================
+   ESTRUCTURA DE LA TERMINAL CYBERPUNK
+   ========================================== */
+.terminal-container {
+  max-width: 550px;
+  margin: 30px auto;
+  background-color: var(--fondo-oscuro, #0a0a0f);
+  border: 2px solid var(--azul-neon, #00f3ff);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* RESPLANDOR EXTRA EN HOVER Y EN BORDES */
+.terminal-container:hover {
+  border-color: var(--azul-neon, #00f3ff);
+  box-shadow: 0 0 25px rgba(0, 243, 255, 0.6), inset 0 0 15px rgba(0, 243, 255, 0.1);
+}
+
+.terminal-header {
+  background: rgba(0, 243, 255, 0.1);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+.dot.green { background-color: #27c93f; }
+
+.terminal-title {
+  color: var(--azul-neon, #00f3ff);
+  font-size: 0.8rem;
+  margin-left: 15px;
+  letter-spacing: 1px;
+}
+
+/* EFECTO DE LÍNEAS DE ESCÁNER (CRT) */
+.terminal-body {
+  padding: 20px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  position: relative;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+}
+
+.terminal-line {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.input-prompt {
+  color: #00f3ff;
+  font-size: 0.85rem;
+  text-shadow: 0 0 5px rgba(0, 243, 255, 0.7);
+}
+
+.response {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px #00f3ff, 0 0 15px rgba(0, 243, 255, 0.6);
+}
+
+/* CURSOR DE MÁQUINA DE ESCRIBIR */
+.response::after {
+  content: "█";
+  margin-left: 5px;
+  color: var(--azul-neon, #00f3ff);
+  animation: parpadeo 0.8s infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* CONTROLES Y BOTÓN */
+.terminal-controls {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.boton-cyberpunk {
+  background: transparent;
+  color: var(--azul-neon, #00f3ff);
+  border: 1px solid var(--azul-neon, #00f3ff);
+  padding: 10px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.boton-cyberpunk:hover {
+  background: var(--azul-neon, #00f3ff);
+  color: #000;
+  box-shadow: 0 0 20px var(--azul-neon, #00f3ff);
+}
+
+.boton-cyberpunk:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
